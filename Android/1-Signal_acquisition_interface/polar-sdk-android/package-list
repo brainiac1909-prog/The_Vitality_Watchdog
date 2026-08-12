@@ -1,0 +1,178 @@
+$dokka.format:javadoc-v1
+$dokka.linkExtension:html
+$dokka.location:com.polar.androidcommunications.api.ble.exceptions/SecurityError.SecurityStrategyUnknown///PointingToDeclaration/com/polar/androidcommunications/api/ble/exceptions/SecurityError.SecurityStrategyUnknown.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/BlePMDClient.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/BlePMDClient.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/BlePMDClient.PmdDataFieldEncoding///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/BlePMDClient.PmdDataFieldEncoding.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdActiveMeasurement.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdActiveMeasurement.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdControlPointCommandClientToService.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdControlPointCommandClientToService.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdControlPointCommandServiceToClient.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdControlPointCommandServiceToClient.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdControlPointResponse.PmdControlPointResponseCode.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdControlPointResponse.PmdControlPointResponseCode.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdControlPointResponse.PmdControlPointResponseCode///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdControlPointResponse.PmdControlPointResponseCode.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdDataFrame.PmdDataFrameType.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdDataFrame.PmdDataFrameType.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdDataFrame.PmdDataFrameType///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdDataFrame.PmdDataFrameType.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdRecordingType.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdRecordingType.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdSdkMode.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdSdkMode.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdSecret.SecurityStrategy.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdSecret.SecurityStrategy.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdSecret.SecurityStrategy///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdSecret.SecurityStrategy.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.pmd/PmdSetting.PmdSettingType///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/pmd/PmdSetting.PmdSettingType.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.psftp/BlePsFtpClient.ProgressCallback///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/psftp/BlePsFtpClient.ProgressCallback.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.psftp/BlePsFtpUtils.MessageType///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/psftp/BlePsFtpUtils.MessageType.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.psftp/BlePsFtpUtils.PftpNotificationMessage///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/psftp/BlePsFtpUtils.PftpNotificationMessage.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.psftp/BlePsFtpUtils.PftpOperationTimeout///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/psftp/BlePsFtpUtils.PftpOperationTimeout.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.psftp/BlePsFtpUtils.PftpResponseError///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/psftp/BlePsFtpUtils.PftpResponseError.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.psftp/BlePsFtpUtils.PftpRfc76ResponseHeader///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/psftp/BlePsFtpUtils.PftpRfc76ResponseHeader.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client.psftp/BlePsFtpUtils.Rfc76SequenceNumber///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/psftp/BlePsFtpUtils.Rfc76SequenceNumber.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BleBattClient.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BleBattClient.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BleDisClient.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BleDisClient.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BleGapClient.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BleGapClient.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BleHrClient.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BleHrClient.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BleHrClient.HrNotificationData///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BleHrClient.HrNotificationData.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BleHtsClient.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BleHtsClient.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BleHtsClient.TemperatureMeasurement///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BleHtsClient.TemperatureMeasurement.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BlePfcClient.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BlePfcClient.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BlePfcClient.PfcFeature///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BlePfcClient.PfcFeature.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BlePfcClient.PfcMessage///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BlePfcClient.PfcMessage.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BlePfcClient.PfcResponse///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BlePfcClient.PfcResponse.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BlePsdClient.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BlePsdClient.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BlePsdClient.PPData///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BlePsdClient.PPData.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BlePsdClient.PsdData///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BlePsdClient.PsdData.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BlePsdClient.PsdFeature///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BlePsdClient.PsdFeature.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BlePsdClient.PsdMessage///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BlePsdClient.PsdMessage.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BlePsdClient.PsdResponse///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BlePsdClient.PsdResponse.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BleRscClient.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BleRscClient.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/BleRscClient.RscNotificationData///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/BleRscClient.RscNotificationData.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.gatt.client/HealthThermometer.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/gatt/client/HealthThermometer.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.offlinerecording/OfflineRecordingError.OfflineRecordingEmptyFile///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/offlinerecording/OfflineRecordingError.OfflineRecordingEmptyFile.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.offlinerecording/OfflineRecordingError.OfflineRecordingErrorMetaDataParseFailed///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/offlinerecording/OfflineRecordingError.OfflineRecordingErrorMetaDataParseFailed.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.offlinerecording/OfflineRecordingError.OfflineRecordingErrorNoParserForData///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/offlinerecording/OfflineRecordingError.OfflineRecordingErrorNoParserForData.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.offlinerecording/OfflineRecordingError.OfflineRecordingErrorSecretMissing///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/offlinerecording/OfflineRecordingError.OfflineRecordingErrorSecretMissing.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.offlinerecording/OfflineRecordingError.OfflineRecordingHasWrongSignature///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/offlinerecording/OfflineRecordingError.OfflineRecordingHasWrongSignature.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.offlinerecording/OfflineRecordingError.OfflineRecordingNoPayloadData///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/offlinerecording/OfflineRecordingError.OfflineRecordingNoPayloadData.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.offlinerecording/OfflineRecordingError.OfflineRecordingSecurityStrategyMissMatch///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/offlinerecording/OfflineRecordingError.OfflineRecordingSecurityStrategyMissMatch.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.polar/BlePolarDeviceCapabilitiesUtility.DefaultsSection///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/polar/BlePolarDeviceCapabilitiesUtility.DefaultsSection.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.polar/BlePolarDeviceCapabilitiesUtility.DeviceCapabilities///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/polar/BlePolarDeviceCapabilitiesUtility.DeviceCapabilities.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.polar/BlePolarDeviceCapabilitiesUtility.DeviceCapabilitiesConfig///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/polar/BlePolarDeviceCapabilitiesUtility.DeviceCapabilitiesConfig.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.polar/BlePolarDeviceCapabilitiesUtility.FileSystemType///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/polar/BlePolarDeviceCapabilitiesUtility.FileSystemType.html
+$dokka.location:com.polar.androidcommunications.api.ble.model.polar/BlePolarDeviceIdUtility.Companion///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/polar/BlePolarDeviceIdUtility.Companion.html
+$dokka.location:com.polar.androidcommunications.api.ble.model/BleDeviceSession.DeviceSessionState///PointingToDeclaration/com/polar/androidcommunications/api/ble/model/BleDeviceSession.DeviceSessionState.html
+$dokka.location:com.polar.androidcommunications.api.ble/BleDeviceListener.BleDeviceSessionStateChangedCallback///PointingToDeclaration/com/polar/androidcommunications/api/ble/BleDeviceListener.BleDeviceSessionStateChangedCallback.html
+$dokka.location:com.polar.androidcommunications.api.ble/BleDeviceListener.BlePowerStateChangedCallback///PointingToDeclaration/com/polar/androidcommunications/api/ble/BleDeviceListener.BlePowerStateChangedCallback.html
+$dokka.location:com.polar.androidcommunications.api.ble/BleDeviceListener.BleSearchPreFilter///PointingToDeclaration/com/polar/androidcommunications/api/ble/BleDeviceListener.BleSearchPreFilter.html
+$dokka.location:com.polar.androidcommunications.api.ble/BleDeviceListener.PowerMode///PointingToDeclaration/com/polar/androidcommunications/api/ble/BleDeviceListener.PowerMode.html
+$dokka.location:com.polar.androidcommunications.api.ble/BleLogger.BleLoggerInterface///PointingToDeclaration/com/polar/androidcommunications/api/ble/BleLogger.BleLoggerInterface.html
+$dokka.location:com.polar.androidcommunications.common.ble/AtomicSet.CompareFunction///PointingToDeclaration/com/polar/androidcommunications/common/ble/AtomicSet.CompareFunction.html
+$dokka.location:com.polar.androidcommunications.common.ble/BleUtils.AD_TYPE///PointingToDeclaration/com/polar/androidcommunications/common/ble/BleUtils.AD_TYPE.html
+$dokka.location:com.polar.androidcommunications.common.ble/BleUtils.Companion///PointingToDeclaration/com/polar/androidcommunications/common/ble/BleUtils.Companion.html
+$dokka.location:com.polar.androidcommunications.common.ble/BleUtils.EVENT_TYPE///PointingToDeclaration/com/polar/androidcommunications/common/ble/BleUtils.EVENT_TYPE.html
+$dokka.location:com.polar.androidcommunications.common.ble/ChannelUtils.Companion///PointingToDeclaration/com/polar/androidcommunications/common/ble/ChannelUtils.Companion.html
+$dokka.location:com.polar.androidcommunications.enpoints.ble.bluedroid.host.connection/ConnectionHandler.ConnectionHandlerState///PointingToDeclaration/com/polar/androidcommunications/enpoints/ble/bluedroid/host/connection/ConnectionHandler.ConnectionHandlerState.html
+$dokka.location:com.polar.androidcommunications.enpoints.ble.bluedroid.host/AttributeOperation.AttributeOperationCommand///PointingToDeclaration/com/polar/androidcommunications/enpoints/ble/bluedroid/host/AttributeOperation.AttributeOperationCommand.html
+$dokka.location:com.polar.androidcommunications.enpoints.ble.bluedroid.host/BDBondingListener.BondingObserver///PointingToDeclaration/com/polar/androidcommunications/enpoints/ble/bluedroid/host/BDBondingListener.BondingObserver.html
+$dokka.location:com.polar.androidcommunications.http.client/RetrofitClient.Companion///PointingToDeclaration/com/polar/androidcommunications/http/client/RetrofitClient.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/AutomaticSampleTriggerType.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/AutomaticSampleTriggerType.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/IntervalStatus.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/IntervalStatus.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/Movement.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/Movement.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/PPiSampleStatus.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/PPiSampleStatus.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/PPiSampleTriggerType.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/PPiSampleTriggerType.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/Polar247HrSamples.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/Polar247HrSamples.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/Polar247HrSamplesData.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/Polar247HrSamplesData.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/PolarActivityClass.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/PolarActivityClass.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/PolarDailyBalanceFeedBack.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/PolarDailyBalanceFeedBack.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/PolarReadinessForSpeedAndStrengthTraining.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/PolarReadinessForSpeedAndStrengthTraining.Companion.html
+$dokka.location:com.polar.sdk.api.model.activity/SkinContact.Companion///PointingToDeclaration/com/polar/sdk/api/model/activity/SkinContact.Companion.html
+$dokka.location:com.polar.sdk.api.model.sleep/SleepRating.Companion///PointingToDeclaration/com/polar/sdk/api/model/sleep/SleepRating.Companion.html
+$dokka.location:com.polar.sdk.api.model.sleep/SleepWakeState.Companion///PointingToDeclaration/com/polar/sdk/api/model/sleep/SleepWakeState.Companion.html
+$dokka.location:com.polar.sdk.api.model.trainingsession/PolarTrainingSessionFetchResult.Complete///PointingToDeclaration/com/polar/sdk/api/model/trainingsession/PolarTrainingSessionFetchResult.Complete.html
+$dokka.location:com.polar.sdk.api.model.trainingsession/PolarTrainingSessionFetchResult.Progress///PointingToDeclaration/com/polar/sdk/api/model/trainingsession/PolarTrainingSessionFetchResult.Progress.html
+$dokka.location:com.polar.sdk.api.model/CheckFirmwareUpdateStatus.CheckFwUpdateAvailable///PointingToDeclaration/com/polar/sdk/api/model/CheckFirmwareUpdateStatus.CheckFwUpdateAvailable.html
+$dokka.location:com.polar.sdk.api.model/CheckFirmwareUpdateStatus.CheckFwUpdateFailed///PointingToDeclaration/com/polar/sdk/api/model/CheckFirmwareUpdateStatus.CheckFwUpdateFailed.html
+$dokka.location:com.polar.sdk.api.model/CheckFirmwareUpdateStatus.CheckFwUpdateNotAvailable///PointingToDeclaration/com/polar/sdk/api/model/CheckFirmwareUpdateStatus.CheckFwUpdateNotAvailable.html
+$dokka.location:com.polar.sdk.api.model/DeviationFromBaseline.Companion///PointingToDeclaration/com/polar/sdk/api/model/DeviationFromBaseline.Companion.html
+$dokka.location:com.polar.sdk.api.model/FirmwareUpdateStatus.FetchingFwUpdatePackage///PointingToDeclaration/com/polar/sdk/api/model/FirmwareUpdateStatus.FetchingFwUpdatePackage.html
+$dokka.location:com.polar.sdk.api.model/FirmwareUpdateStatus.FinalizingFwUpdate///PointingToDeclaration/com/polar/sdk/api/model/FirmwareUpdateStatus.FinalizingFwUpdate.html
+$dokka.location:com.polar.sdk.api.model/FirmwareUpdateStatus.FwUpdateCompletedSuccessfully///PointingToDeclaration/com/polar/sdk/api/model/FirmwareUpdateStatus.FwUpdateCompletedSuccessfully.html
+$dokka.location:com.polar.sdk.api.model/FirmwareUpdateStatus.FwUpdateFailed///PointingToDeclaration/com/polar/sdk/api/model/FirmwareUpdateStatus.FwUpdateFailed.html
+$dokka.location:com.polar.sdk.api.model/FirmwareUpdateStatus.FwUpdateNotAvailable///PointingToDeclaration/com/polar/sdk/api/model/FirmwareUpdateStatus.FwUpdateNotAvailable.html
+$dokka.location:com.polar.sdk.api.model/FirmwareUpdateStatus.PreparingDeviceForFwUpdate///PointingToDeclaration/com/polar/sdk/api/model/FirmwareUpdateStatus.PreparingDeviceForFwUpdate.html
+$dokka.location:com.polar.sdk.api.model/FirmwareUpdateStatus.WritingFwUpdatePackage///PointingToDeclaration/com/polar/sdk/api/model/FirmwareUpdateStatus.WritingFwUpdatePackage.html
+$dokka.location:com.polar.sdk.api.model/LogConfig.Companion///PointingToDeclaration/com/polar/sdk/api/model/LogConfig.Companion.html
+$dokka.location:com.polar.sdk.api.model/PolarAccelerometerData.PolarAccelerometerDataSample///PointingToDeclaration/com/polar/sdk/api/model/PolarAccelerometerData.PolarAccelerometerDataSample.html
+$dokka.location:com.polar.sdk.api.model/PolarDerivedMeasurementMethod.Companion///PointingToDeclaration/com/polar/sdk/api/model/PolarDerivedMeasurementMethod.Companion.html
+$dokka.location:com.polar.sdk.api.model/PolarDiskSpaceData.Companion///PointingToDeclaration/com/polar/sdk/api/model/PolarDiskSpaceData.Companion.html
+$dokka.location:com.polar.sdk.api.model/PolarExerciseSession.ExerciseInfo///PointingToDeclaration/com/polar/sdk/api/model/PolarExerciseSession.ExerciseInfo.html
+$dokka.location:com.polar.sdk.api.model/PolarExerciseSession.ExerciseStatus///PointingToDeclaration/com/polar/sdk/api/model/PolarExerciseSession.ExerciseStatus.html
+$dokka.location:com.polar.sdk.api.model/PolarExerciseSession.SportProfile.Companion///PointingToDeclaration/com/polar/sdk/api/model/PolarExerciseSession.SportProfile.Companion.html
+$dokka.location:com.polar.sdk.api.model/PolarExerciseSession.SportProfile///PointingToDeclaration/com/polar/sdk/api/model/PolarExerciseSession.SportProfile.html
+$dokka.location:com.polar.sdk.api.model/PolarFirstTimeUseConfig.Companion///PointingToDeclaration/com/polar/sdk/api/model/PolarFirstTimeUseConfig.Companion.html
+$dokka.location:com.polar.sdk.api.model/PolarFirstTimeUseConfig.Gender///PointingToDeclaration/com/polar/sdk/api/model/PolarFirstTimeUseConfig.Gender.html
+$dokka.location:com.polar.sdk.api.model/PolarFirstTimeUseConfig.TypicalDay///PointingToDeclaration/com/polar/sdk/api/model/PolarFirstTimeUseConfig.TypicalDay.html
+$dokka.location:com.polar.sdk.api.model/PolarGyroData.PolarGyroDataSample///PointingToDeclaration/com/polar/sdk/api/model/PolarGyroData.PolarGyroDataSample.html
+$dokka.location:com.polar.sdk.api.model/PolarHrData.PolarHrSample///PointingToDeclaration/com/polar/sdk/api/model/PolarHrData.PolarHrSample.html
+$dokka.location:com.polar.sdk.api.model/PolarMagnetometerData.PolarMagnetometerDataSample///PointingToDeclaration/com/polar/sdk/api/model/PolarMagnetometerData.PolarMagnetometerDataSample.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingData.AccOfflineRecording///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingData.AccOfflineRecording.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingData.DerivedAccOfflineRecording///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingData.DerivedAccOfflineRecording.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingData.GyroOfflineRecording///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingData.GyroOfflineRecording.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingData.HrOfflineRecording///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingData.HrOfflineRecording.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingData.MagOfflineRecording///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingData.MagOfflineRecording.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingData.PpgOfflineRecording///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingData.PpgOfflineRecording.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingData.PpiOfflineRecording///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingData.PpiOfflineRecording.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingData.SkinTemperatureOfflineRecording///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingData.SkinTemperatureOfflineRecording.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingData.TemperatureOfflineRecording///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingData.TemperatureOfflineRecording.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingResult.Complete///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingResult.Complete.html
+$dokka.location:com.polar.sdk.api.model/PolarOfflineRecordingResult.Progress///PointingToDeclaration/com/polar/sdk/api/model/PolarOfflineRecordingResult.Progress.html
+$dokka.location:com.polar.sdk.api.model/PolarPpgData.PolarPpgSample///PointingToDeclaration/com/polar/sdk/api/model/PolarPpgData.PolarPpgSample.html
+$dokka.location:com.polar.sdk.api.model/PolarPpgData.PpgDataType///PointingToDeclaration/com/polar/sdk/api/model/PolarPpgData.PpgDataType.html
+$dokka.location:com.polar.sdk.api.model/PolarPpiData.PolarPpiSample///PointingToDeclaration/com/polar/sdk/api/model/PolarPpiData.PolarPpiSample.html
+$dokka.location:com.polar.sdk.api.model/PolarPressureData.PolarPressureDataSample///PointingToDeclaration/com/polar/sdk/api/model/PolarPressureData.PolarPressureDataSample.html
+$dokka.location:com.polar.sdk.api.model/PolarSensorSetting.SensorLocation///PointingToDeclaration/com/polar/sdk/api/model/PolarSensorSetting.SensorLocation.html
+$dokka.location:com.polar.sdk.api.model/PolarSensorSetting.SettingType///PointingToDeclaration/com/polar/sdk/api/model/PolarSensorSetting.SettingType.html
+$dokka.location:com.polar.sdk.api.model/PolarSensorSetting.TemperatureMeasurementType///PointingToDeclaration/com/polar/sdk/api/model/PolarSensorSetting.TemperatureMeasurementType.html
+$dokka.location:com.polar.sdk.api.model/PolarTemperatureData.PolarTemperatureDataSample///PointingToDeclaration/com/polar/sdk/api/model/PolarTemperatureData.PolarTemperatureDataSample.html
+$dokka.location:com.polar.sdk.api.model/PolarUserDeviceSettings.Companion///PointingToDeclaration/com/polar/sdk/api/model/PolarUserDeviceSettings.Companion.html
+$dokka.location:com.polar.sdk.api.model/PolarUserDeviceSettings.DeviceLocation///PointingToDeclaration/com/polar/sdk/api/model/PolarUserDeviceSettings.DeviceLocation.html
+$dokka.location:com.polar.sdk.api.model/PolarWatchFaceComplication.Companion///PointingToDeclaration/com/polar/sdk/api/model/PolarWatchFaceComplication.Companion.html
+$dokka.location:com.polar.sdk.api.model/SkinTemperatureMeasurementType.Companion///PointingToDeclaration/com/polar/sdk/api/model/SkinTemperatureMeasurementType.Companion.html
+$dokka.location:com.polar.sdk.api.model/SkinTemperatureSensorLocation.Companion///PointingToDeclaration/com/polar/sdk/api/model/SkinTemperatureSensorLocation.Companion.html
+$dokka.location:com.polar.sdk.api.model/Spo2Class.Companion///PointingToDeclaration/com/polar/sdk/api/model/Spo2Class.Companion.html
+$dokka.location:com.polar.sdk.api.model/Spo2TestStatus.Companion///PointingToDeclaration/com/polar/sdk/api/model/Spo2TestStatus.Companion.html
+$dokka.location:com.polar.sdk.api.model/Spo2TestTriggerType.Companion///PointingToDeclaration/com/polar/sdk/api/model/Spo2TestTriggerType.Companion.html
+$dokka.location:com.polar.sdk.api.model/UserIdentifierType.Companion///PointingToDeclaration/com/polar/sdk/api/model/UserIdentifierType.Companion.html
+$dokka.location:com.polar.sdk.api/PolarBleApi.PolarActivityDataType///PointingToDeclaration/com/polar/sdk/api/PolarBleApi.PolarActivityDataType.html
+$dokka.location:com.polar.sdk.api/PolarBleApi.PolarBleApiLogger///PointingToDeclaration/com/polar/sdk/api/PolarBleApi.PolarBleApiLogger.html
+$dokka.location:com.polar.sdk.api/PolarBleApi.PolarBleSdkFeature///PointingToDeclaration/com/polar/sdk/api/PolarBleApi.PolarBleSdkFeature.html
+$dokka.location:com.polar.sdk.api/PolarBleApi.PolarDeviceDataType///PointingToDeclaration/com/polar/sdk/api/PolarBleApi.PolarDeviceDataType.html
+$dokka.location:com.polar.sdk.api/PolarBleApi.PolarStoredDataType///PointingToDeclaration/com/polar/sdk/api/PolarBleApi.PolarStoredDataType.html
+$dokka.location:com.polar.sdk.api/PolarDeviceToHostNotification.Companion///PointingToDeclaration/com/polar/sdk/api/PolarDeviceToHostNotification.Companion.html
+$dokka.location:com.polar.sdk.api/PolarH10OfflineExerciseApi.RecordingInterval///PointingToDeclaration/com/polar/sdk/api/PolarH10OfflineExerciseApi.RecordingInterval.html
+$dokka.location:com.polar.sdk.api/PolarH10OfflineExerciseApi.SampleType///PointingToDeclaration/com/polar/sdk/api/PolarH10OfflineExerciseApi.SampleType.html
+$dokka.location:com.polar.sdk.api/PolarOfflineExerciseV2Api.Companion///PointingToDeclaration/com/polar/sdk/api/PolarOfflineExerciseV2Api.Companion.html
+$dokka.location:com.polar.sdk.api/PolarOfflineExerciseV2Api.OfflineExerciseStartResult///PointingToDeclaration/com/polar/sdk/api/PolarOfflineExerciseV2Api.OfflineExerciseStartResult.html
+$dokka.location:com.polar.sdk.api/PolarOfflineExerciseV2Api.StartResult///PointingToDeclaration/com/polar/sdk/api/PolarOfflineExerciseV2Api.StartResult.html
+$dokka.location:com.polar.sdk.impl.utils/PolarBackupManager.BackupFileData///PointingToDeclaration/com/polar/sdk/impl/utils/PolarBackupManager.BackupFileData.html
+com.polar.androidcommunications.api.ble
+com.polar.androidcommunications.api.ble.exceptions
+com.polar.androidcommunications.api.ble.model
+com.polar.androidcommunications.api.ble.model.advertisement
+com.polar.androidcommunications.api.ble.model.gatt
+com.polar.androidcommunications.api.ble.model.gatt.client
+com.polar.androidcommunications.api.ble.model.gatt.client.pmd
+com.polar.androidcommunications.api.ble.model.gatt.client.pmd.errors
+com.polar.androidcommunications.api.ble.model.gatt.client.pmd.model
+com.polar.androidcommunications.api.ble.model.gatt.client.psftp
+com.polar.androidcommunications.api.ble.model.offlinerecording
+com.polar.androidcommunications.api.ble.model.polar
+com.polar.androidcommunications.common.ble
+com.polar.androidcommunications.enpoints.ble.bluedroid.host
+com.polar.androidcommunications.enpoints.ble.bluedroid.host.connection
+com.polar.androidcommunications.http.client
+com.polar.androidcommunications.http.fwu
+com.polar.sdk.api
+com.polar.sdk.api.errors
+com.polar.sdk.api.model
+com.polar.sdk.api.model.activity
+com.polar.sdk.api.model.restapi
+com.polar.sdk.api.model.sleep
+com.polar.sdk.api.model.trainingsession
+com.polar.sdk.impl
+com.polar.sdk.impl.utils
+
