@@ -1,0 +1,176 @@
+syntax = "proto2";
+
+package protocol;
+
+enum PbPFtpHostToDevNotification {
+  START_SYNC = 0;
+  STOP_SYNC = 1;
+  RESET = 2;
+  INITIALIZE_SESSION = 8;
+  TERMINATE_SESSION = 9;
+}
+
+message PbPFtpFactoryResetParams {
+  required bool sleep = 1;
+  optional bool do_factory_defaults = 2 [default = true];
+  optional bool ota_fwupdate = 3 [default = false];
+  // If true, the device should go to hibernate instead of the shelf/storage mode. Hibernate consumes slightly
+  // more battery than storage mode, but retains device time. In hibernate battery should last for tens, or even
+  // hundreds of days.
+  optional bool hibernate = 4 [default = false];
+}
+
+message PbPFtpStopSyncParams {
+  required bool completed = 1;
+}
+
+enum PbPFtpDevToHostNotification {
+    FILESYSTEM_MODIFIED = 0;
+    INTERNAL_TEST_EVENT = 1;
+    IDLING = 2;
+    BATTERY_STATUS = 3;
+    INACTIVITY_ALERT = 4;
+    TRAINING_SESSION_STATUS = 5;
+    SYNC_REQUIRED = 7;
+    AUTOSYNC_STATUS = 8;
+    PNS_DH_NOTIFICATION_RESPONSE = 9;
+    PNS_SETTINGS = 10;
+    START_GPS_MEASUREMENT = 11;
+    STOP_GPS_MEASUREMENT = 12;
+    KEEP_BACKGROUND_ALIVE = 13;
+    POLAR_SHELL_DH_DATA = 14;
+    MEDIA_CONTROL_REQUEST_DH = 15;
+    MEDIA_CONTROL_COMMAND_DH = 16;
+    MEDIA_CONTROL_ENABLED = 17;
+    REST_API_EVENT = 18;
+    EXERCISE_STATUS = 19;
+}
+
+enum Action {
+    CREATED = 0;
+    UPDATED = 1;
+    REMOVED = 2;
+}
+
+enum PbPFtpSyncTriggerSource {
+    NO_SOURCE = 0;
+    USER = 1;
+    TIMED = 2;
+    FEATURE = 3;
+}
+
+enum PbPftpPnsDHAttributeType {
+    UNKNOWN_ACTION = 1;
+    POSITIVE_ACTION = 2;
+    NEGATIVE_ACTION = 3;
+    CLEAR_ACTION = 4;
+    A_ACTION = 5;
+    B_ACTION = 6;
+    C_ACTION = 7;
+    D_ACTION = 8;
+}
+
+enum MediaControlRequest {
+    GET_MEDIA_DATA = 1;
+    GET_PLAYBACK_STATE = 2;
+}
+
+enum MediaControlCommand {
+    PLAY = 1;
+    PAUSE = 2;
+    TOGGLER_PLAY_PAUSE = 3;
+    NEXT = 4;
+    PREVIOUS = 5;
+    FAST_FORWARD = 6;
+    FAST_BACKWARD = 7;
+    VOLUME_UP = 8;
+    VOLUME_DOWN = 9;
+}
+
+message PbPFtpFilesystemModifiedParams {
+    optional Action action = 1;
+    optional string path = 2;
+}
+
+message PbPFtpInactivityAlert {
+    optional uint32 countdown = 1;
+}
+
+message PbPFtpTrainingSessionStatus {
+    optional bool inprogress = 1;
+}
+
+message PbPFtpAutoSyncStatusParams {
+    optional bool succeeded = 1;
+    optional string description = 2;
+}
+
+message PbPFtpSyncTrigger {
+    optional PbPFtpSyncTriggerSource source = 1;
+    optional string feature_name = 2;
+}
+
+message PbPFtpSyncRequiredParams {
+    repeated PbPFtpSyncTrigger sync_triggers = 1;
+}
+
+message PbPFtpPolarShellMessageParams {
+    optional uint32 polar_shell_msg_id = 1;
+    optional string data = 2;
+}
+
+message PbPftpPnsDHAttribute {
+    optional PbPftpPnsDHAttributeType type = 1;
+}
+
+message PbPftpPnsDHNotificationResponse {
+    optional uint32 notification_id = 1;
+    repeated PbPftpPnsDHAttribute attributes = 2;
+}
+
+message PbPftpPnsState {
+    optional bool notifications_enabled = 1;
+    optional bool preview_enabled = 2;
+}
+
+message PbPftpStartGPSMeasurement {
+    optional uint32 minimum_interval = 1 [default = 1000];
+    optional uint32 accuracy = 2 [default = 2];
+    optional double latitude = 3;
+    optional double longitude = 4;
+}
+
+message PbPftpDHMediaControlRequest {
+    optional MediaControlRequest request = 1;
+}
+
+message PbPftpDHMediaControlCommand {
+    optional MediaControlCommand command = 1;
+}
+
+message PbPftpDHMediaControlEnabled {
+    optional bool enabled = 1;
+}
+
+message PbPftpDHRestApiEvent {
+    repeated bytes event = 1;
+    optional bool uncompressed = 2; // If this field is missing or false, the payload is compressed
+}
+
+message PbPftpDHExerciseStatus {
+    enum PbExerciseState {
+        EXERCISE_STATE_OTHER = 0;
+        EXERCISE_STATE_RUNNING = 1;
+        EXERCISE_STATE_PAUSED = 2;
+        EXERCISE_STATE_OFF = 3;
+    }
+
+    enum PbExerciseType {
+        EXERCISE_TYPE_OTHER = 0;
+        EXERCISE_TYPE_TRAINING = 1;
+        EXERCISE_TYPE_NIGHTLY_RECHARGE = 2;
+    }
+
+    optional PbExerciseState exercise_state = 1;
+    optional PbExerciseType exercise_type = 2;
+}

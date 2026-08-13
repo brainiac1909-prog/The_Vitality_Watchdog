@@ -1,0 +1,80 @@
+syntax = "proto2";
+
+package protocol;
+
+import "types.proto";
+import "structures.proto";
+
+message PbPFtpOperation {
+  enum Command {
+    GET = 0;
+    PUT = 1;
+    MERGE = 2;
+    REMOVE = 3;
+  }
+  required Command command = 1;
+  required string path = 2;
+}
+
+enum PbPFtpQuery {
+  SET_SYSTEM_TIME = 1;
+  SET_LOCAL_TIME = 3;
+  GET_LOCAL_TIME = 4;
+  GET_DISK_SPACE = 5;
+  PREPARE_FIRMWARE_UPDATE = 12;
+  REQUEST_SYNCHRONIZATION = 13;
+  REQUEST_START_RECORDING = 14;
+  REQUEST_STOP_RECORDING = 15;
+  REQUEST_RECORDING_STATUS = 16;
+  START_EXERCISE              = 21;
+  STOP_EXERCISE               = 22;
+  PAUSE_EXERCISE              = 23;
+  RESUME_EXERCISE             = 24;
+  GET_EXERCISE_STATUS         = 25;
+  START_DM_EXERCISE           = 26;
+}
+
+message PbPFtpRequestStartRecordingParams {
+  required PbSampleType sample_type = 1;
+  required PbDuration recording_interval = 2;
+  optional string sample_data_identifier = 3;
+}
+
+message PbPFtpSetLocalTimeParams {
+  required PbDate date = 1;
+  required PbTime time = 2;
+  optional int32 tz_offset = 3 [(type) = TIME_ZONE_OFFSET];
+}
+
+message PbPFtpSetSystemTimeParams {
+  // UTC date to be set.
+  required PbDate date = 1;
+  // UTC time to be set.
+  required PbTime time = 2;
+  // True, if date and time are from trusted source.
+  required bool trusted = 3;
+}
+
+/*
+ * Parameters for START_EXERCISE query.
+ */
+message PbPFtpStartExerciseParams {
+  // Reference to sport ecosystem identifier
+  required PbSportIdentifier sport_identifier = 1;
+}
+
+/*
+ * Parameters for STOP_EXERCISE query.
+ */
+message PbPFtpStopExerciseParams {
+  // Enable / disable saving the stopped exercise
+  required bool save = 1;
+}
+
+/*
+ * Parameters for START_DM_EXERCISE query.
+ */
+message PbPFtpStartDmExerciseParams {
+    // Reference to sport ecosystem identifier
+    required PbSportIdentifier sport_identifier = 1;
+}

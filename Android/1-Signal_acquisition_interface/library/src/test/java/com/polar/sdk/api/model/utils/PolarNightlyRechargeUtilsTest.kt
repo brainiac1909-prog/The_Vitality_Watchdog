@@ -1,0 +1,142 @@
+package com.polar.sdk.api.model.utils
+
+import fi.polar.remote.representation.protobuf.Types.PbDate
+import fi.polar.remote.representation.protobuf.Types.PbSystemDateTime
+import fi.polar.remote.representation.protobuf.Types.PbTime
+import com.polar.androidcommunications.api.ble.model.gatt.client.psftp.BlePsFtpClient
+import com.polar.sdk.api.model.sleep.PolarNightlyRechargeData
+import com.polar.sdk.impl.utils.PolarNightlyRechargeUtils
+import fi.polar.remote.representation.protobuf.NightlyRecovery
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.confirmVerified
+import io.mockk.mockk
+import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
+import org.junit.Test
+import protocol.PftpRequest
+import java.io.ByteArrayOutputStream
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
+
+class PolarNightlyRechargeUtilsTest {
+
+    private val dateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+
+    @Test
+    fun `readNightlyRechargeData() should return nightly recharge data`() = runTest {
+        // Arrange
+        val mockClient = mockk<BlePsFtpClient>()
+        val date = LocalDate.now()
+        val expectedPath = "/U/0/${date.format(dateFormatter)}/NR/NR.BPB"
+
+        val outputStream = ByteArrayOutputStream().apply {
+            val proto = NightlyRecovery.PbNightlyRecoveryStatus.newBuilder()
+                    .setSleepResultDate(PbDate.newBuilder().setYear(2024).setMonth(12).setDay(5).build())
+                    .setCreatedTimestamp(PbSystemDateTime.newBuilder()
+                            .setDate(PbDate.newBuilder().setYear(2023).setMonth(12).setDay(5).build())
+                            .setTime(PbTime.newBuilder().setHour(10).setMinute(0).setSeconds(0).setMillis(0).build())
+                            .setTrusted(true)
+                            .build())
+                    .setModifiedTimestamp(PbSystemDateTime.newBuilder()
+                            .setDate(PbDate.newBuilder().setYear(2023).setMonth(12).setDay(5).build())
+                            .setTime(PbTime.newBuilder().setHour(10).setMinute(0).setSeconds(0).setMillis(0).build())
+                            .setTrusted(true)
+                            .build())
+                    .setAnsStatus(5.5f)
+                    .setRecoveryIndicator(3)
+                    .setRecoveryIndicatorSubLevel(50)
+                    .setAnsRate(4)
+                    .setScoreRateOBSOLETE(2)
+                    .setMeanNightlyRecoveryRRI(800)
+                    .setMeanNightlyRecoveryRMSSD(50)
+                    .setMeanNightlyRecoveryRespirationInterval(1000)
+                    .setMeanBaselineRRI(750)
+                    .setSdBaselineRRI(30)
+                    .setMeanBaselineRMSSD(45)
+                    .setSdBaselineRMSSD(20)
+                    .setMeanBaselineRespirationInterval(950)
+                    .setSdBaselineRespirationInterval(25)
+                    .setSleepTip("Sleep tip 1")
+                    .setVitalityTip("Vitality tip 2")
+                    .setExerciseTip("Exercise tip 3")
+                    .build()
+            proto.writeTo(this)
+        }
+
+        val createdTimestamp = LocalDateTime.of(2023, 12, 5, 10, 0, 0, 0)
+        val sleepResultDate = LocalDate.of(2024, Calendar.DECEMBER + 1, 5)
+
+        val expectedResult = PolarNightlyRechargeData(
+                createdTimestamp = createdTimestamp,
+                modifiedTimestamp = createdTimestamp,
+                ansStatus = 5.5f,
+                recoveryIndicator = 3,
+                recoveryIndicatorSubLevel = 50,
+                ansRate = 4,
+                scoreRateObsolete = 2,
+                meanNightlyRecoveryRRI = 800,
+                meanNightlyRecoveryRMSSD = 50,
+                meanNightlyRecoveryRespirationInterval = 1000,
+                meanBaselineRRI = 750,
+                sdBaselineRRI = 30,
+                meanBaselineRMSSD = 45,
+                sdBaselineRMSSD = 20,
+                meanBaselineRespirationInterval = 950,
+                sdBaselineRespirationInterval = 25,
+                sleepTip = "Sleep tip 1",
+                vitalityTip = "Vitality tip 2",
+                exerciseTip = "Exercise tip 3",
+                sleepResultDate = sleepResultDate
+        )
+
+        coEvery { mockClient.request(any()) } returns outputStream
+
+        // Act
+        val result = PolarNightlyRechargeUtils.readNightlyRechargeData(mockClient, date)
+
+        // Assert
+        assertEquals(expectedResult, result)
+
+        coVerify {
+            mockClient.request(
+                    PftpRequest.PbPFtpOperation.newBuilder()
+                            .setCommand(PftpRequest.PbPFtpOperation.Command.GET)
+                            .setPath(expectedPath)
+                            .build()
+                            .toByteArray()
+            )
+        }
+        confirmVerified(mockClient)
+    }
+
+    @Test
+    fun `readNightlyRechargeData() should return null when an error is thrown`() = runTest {
+        // Arrange
+        val mockClient = mockk<BlePsFtpClient>()
+        val date = LocalDate.now()
+        val expectedPath = "/U/0/${date.format(dateFormatter)}/NR/NR.BPB"
+
+        coEvery { mockClient.request(any()) } throws Throwable("No nightly recharge data found")
+
+        // Act
+        val result = PolarNightlyRechargeUtils.readNightlyRechargeData(mockClient, date)
+
+        // Assert
+        assertNull(result)
+
+        coVerify {
+            mockClient.request(
+                    PftpRequest.PbPFtpOperation.newBuilder()
+                            .setCommand(PftpRequest.PbPFtpOperation.Command.GET)
+                            .setPath(expectedPath)
+                            .build()
+                            .toByteArray()
+            )
+        }
+        confirmVerified(mockClient)
+    }
+}
