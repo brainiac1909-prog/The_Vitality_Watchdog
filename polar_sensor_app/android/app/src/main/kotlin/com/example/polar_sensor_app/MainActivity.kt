@@ -5,6 +5,9 @@ import androidx.lifecycle.lifecycleScope
 import com.polar.sdk.api.PolarBleApi
 import com.polar.sdk.api.PolarBleApiCallback
 import com.polar.sdk.api.PolarBleApiDefaultImpl
+import com.polar.sdk.api.model.PolarDeviceInfo
+import com.polar.androidcommunications.api.ble.model.DisInfo
+import com.polar.sdk.api.model.PolarHealthThermometerData
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
@@ -13,6 +16,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.util.UUID
 
 class MainActivity : FlutterActivity() {
     companion object {
@@ -38,8 +42,28 @@ class MainActivity : FlutterActivity() {
         )
 
         polarApi.setApiCallback(object : PolarBleApiCallback() {
-            override fun deviceConnected(polarDeviceInfo: com.polar.sdk.api.model.PolarDeviceInfo) {
+            override fun deviceConnected(polarDeviceInfo: PolarDeviceInfo) {
                 Log.d(TAG, "Connected to ${polarDeviceInfo.deviceId}")
+            }
+
+           override fun disInformationReceived(identifier: String, uuid: UUID,  value: String) {
+                 Log.d(TAG, "Device information received: $identifier")
+            }
+
+            override fun disInformationReceived(identifier: String,disInfo:DisInfo) {
+                 Log.d(TAG, "Device information received: $identifier")
+            }
+
+            override fun htsNotificationReceived(identifier:String, data:PolarHealthThermometerData){
+                Log.d(TAG, "Health thermometer data received $identifier")
+            }
+
+            override fun deviceConnecting(polarDeviceInfo: PolarDeviceInfo) {
+                Log.d(TAG, "Connecting to ${polarDeviceInfo.deviceId}")
+            }
+
+            override fun deviceDisconnected(polarDeviceInfo: PolarDeviceInfo) {
+                Log.d(TAG, "Disconnected from ${polarDeviceInfo.deviceId}")
             }
 
             override fun bleSdkFeatureReady(
