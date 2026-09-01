@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 
+import 'datamodels/sensor_data.dart';
+import 'processing/sig_processor.dart';
+
 class PolarDevice {
   const PolarDevice({
     required this.deviceId,
@@ -35,6 +38,8 @@ class PolarService {
       MethodChannel('com.example.polar/commands');
   static const EventChannel _hrStreamChannel =
       EventChannel('com.example.polar/hr_stream');
+  static const EventChannel _ppiStreamChannel =
+      EventChannel('com.example.polar/ppi_stream');
   static const EventChannel _deviceScanChannel =
       EventChannel('com.example.polar/device_scan');
   static const EventChannel _connectionChannel =
@@ -81,6 +86,23 @@ class PolarService {
     }
   }
 
+  /// Starts the PPI (pulse-to-pulse interval) stream. Safe to call whether
+  /// or not an HR stream is already running/starting - the native side
+  /// sequences the two PMD handshakes so they don't race each other.
+  Future<bool> startPpiStream() async {
+    try {
+      final bool success = await _commandChannel.invokeMethod('startPpiStream');
+      return success;
+    } on PlatformException catch (e) {
+      debugPrint('Failed to start PPI stream: ${e.message}');
+      return false;
+    }
+  }
+
+  Future<void> stopPpiStream() async {
+    await _commandChannel.invokeMethod('stopPpiStream');
+  }
+
   Future<void> disconnectFromSensor() async {
     await _commandChannel.invokeMethod('disconnect');
   }
@@ -90,6 +112,18 @@ class PolarService {
       if (event is int) return event;
       if (event is num) return event.toInt();
       throw FormatException('Unexpected heart-rate event: $event');
+    });
+  }
+
+  /// Each event is a full PPI packet, delivered as a list of samples in
+  /// chronological order (already reconstructed with per-sample timestamps
+  /// on the native side).
+  Stream<List<PpiSample>> get ppiStream {
+    return _ppiStreamChannel.receiveBroadcastStream().map((event) {
+      final rawList = event as List<Object?>;
+      return rawList
+          .map((raw) => PpiSample.fromMap(Map<Object?, Object?>.from(raw as Map)))
+          .toList(growable: false);
     });
   }
 }
@@ -121,12 +155,32 @@ class PolarHomePage extends StatefulWidget {
 }
 
 class _PolarHomePageState extends State<PolarHomePage> {
+  static const int _prvWindowSize = 60; // ~60 pulses ≈ a workable PRV window
+
   final PolarService _polarService = PolarService();
   final Map<String, PolarDevice> _devices = {};
   bool _connected = false;
-  bool _streaming = false;
+  bool _streamingHr = false;
+  bool _streamingPpi = false;
   int _heartRate = 0;
+
+  /// Rolling buffer of recent PPI samples - the "usable variable" your
+  /// stress model should read from. Trimmed to [_prvWindowSize] so this
+  /// stays cheap to keep in memory; swap for persistent storage if you need
+  /// full-session history for offline analysis.
+  final List<PpiSample> _ppiBuffer = [];
+  PrvFeatures? _latestPrvFeatures;
+
+  /// Tracks consecutive blocker-flagged samples so the UI can nudge the user
+  /// to stay still, per documentation/PPIData.md's own suggested pattern:
+  /// "If the SDK application sees several samples with blocker = 1 in a row,
+  /// it could use that to inform the user that they should try to be more
+  /// still."
+  static const int _consecutiveBlockedThreshold = 5;
+  int _consecutiveBlockedSamples = 0;
+
   StreamSubscription<int>? _heartRateSubscription;
+  StreamSubscription<List<PpiSample>>? _ppiSubscription;
   StreamSubscription<PolarDevice>? _deviceSubscription;
   StreamSubscription<Map<Object?, Object?>>? _connectionSubscription;
   bool _connecting = false;
@@ -135,6 +189,7 @@ class _PolarHomePageState extends State<PolarHomePage> {
   @override
   void dispose() {
     _heartRateSubscription?.cancel();
+    _ppiSubscription?.cancel();
     _deviceSubscription?.cancel();
     _connectionSubscription?.cancel();
     _polarService.stopScan();
@@ -172,17 +227,27 @@ class _PolarHomePageState extends State<PolarHomePage> {
       _connected = state == 'connected';
       if (state == 'disconnected') {
         _connected = false;
-        _streaming = false;
+        _streamingHr = false;
+        _streamingPpi = false;
         _heartRate = 0;
       }
     });
-    if (state == 'connected') _startHeartRateStream();
+    if (state == 'connected') {
+      // Request both streams. The native side serialises the underlying PMD
+      // handshakes so this is safe even though PPI depends on HR having
+      // started first.
+      _startHeartRateStream();
+      _startPpiStream();
+    }
   }
 
   Future<void> _connect(PolarDevice device) async {
     setState(() {
       _connecting = true;
       _errorMessage = null;
+      _ppiBuffer.clear();
+      _latestPrvFeatures = null;
+      _consecutiveBlockedSamples = 0;
     });
 
     final accepted = await _polarService.connectToSensor(device.deviceId);
@@ -207,22 +272,55 @@ class _PolarHomePageState extends State<PolarHomePage> {
         },
       );
     final streamStarted = await _polarService.startHeartRateStream();
-    if (mounted) setState(() => _streaming = streamStarted);
+    if (mounted) setState(() => _streamingHr = streamStarted);
+  }
+
+  Future<void> _startPpiStream() async {
+    await _ppiSubscription?.cancel();
+    _ppiSubscription = _polarService.ppiStream.listen(
+      (packet) {
+        if (!mounted) return;
+        setState(() {
+          for (final sample in packet) {
+            _consecutiveBlockedSamples =
+                sample.blockerBit ? _consecutiveBlockedSamples + 1 : 0;
+          }
+          _ppiBuffer.addAll(packet);
+          if (_ppiBuffer.length > _prvWindowSize) {
+            _ppiBuffer.removeRange(0, _ppiBuffer.length - _prvWindowSize);
+          }
+          _latestPrvFeatures = SigProcessor.computeTimeDomainFeatures(_ppiBuffer);
+        });
+      },
+      onError: (Object error) {
+        if (!mounted) return;
+        setState(() => _errorMessage = 'PPI stream failed: $error');
+      },
+    );
+    final streamStarted = await _polarService.startPpiStream();
+    if (mounted) setState(() => _streamingPpi = streamStarted);
   }
 
   Future<void> _disconnect() async {
     await _heartRateSubscription?.cancel();
+    await _ppiSubscription?.cancel();
+    await _polarService.stopPpiStream();
     await _polarService.disconnectFromSensor();
     if (!mounted) return;
     setState(() {
       _connected = false;
-      _streaming = false;
+      _streamingHr = false;
+      _streamingPpi = false;
       _heartRate = 0;
+      _ppiBuffer.clear();
+      _latestPrvFeatures = null;
+      _consecutiveBlockedSamples = 0;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final prv = _latestPrvFeatures;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Polar Sensor'),
@@ -283,11 +381,11 @@ class _PolarHomePageState extends State<PolarHomePage> {
             ),
             const SizedBox(height: 24),
             Text(
-              _connected ? 'Connected' : 'Not connected',
+              _streamingHr ? 'Streaming HR' : 'Not streaming HR',
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(
-              _streaming ? 'Streaming HR' : 'Not streaming',
+              _streamingPpi ? 'Streaming PPI' : 'Not streaming PPI',
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 16),
@@ -295,6 +393,41 @@ class _PolarHomePageState extends State<PolarHomePage> {
               'Heart Rate: $_heartRate bpm',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            const SizedBox(height: 8),
+            Text(
+              'PPI buffer: ${_ppiBuffer.length} samples',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            if (prv != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'SDNN ${prv.sdnnMs.toStringAsFixed(1)}ms  '
+                'RMSSD ${prv.rmssdMs.toStringAsFixed(1)}ms  '
+                'pNN50 ${prv.pnn50Percent.toStringAsFixed(1)}%',
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+              if (!prv.isReliable)
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: Text(
+                    'Low confidence: too much movement in this window',
+                    style: TextStyle(color: Theme.of(context).colorScheme.error),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+            ],
+            if (_consecutiveBlockedSamples >= _consecutiveBlockedThreshold)
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Text(
+                  'Hold still for a more accurate PPI reading',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             if (_errorMessage != null) ...[
               const SizedBox(height: 12),
               Text(
