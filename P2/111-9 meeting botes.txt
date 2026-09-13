@@ -1,0 +1,26 @@
+what does someone else need to implement our system -->that's what you put into the repot, nothing more, nothing less.
+don't put random useless info that does nothing to show what project does or contains.
+define every variable in equation with units.
+introduce that there are many hrv metrics but say we only need this and that..go find other deets elsewhere
+put every extra thing into appendix
+results proving progress....
+ORDER HARDWARE TODAY...and maybe pcb
+make it seem like you did procedural design...not shortcutting...get sim results from octave if have time....try for heart rate only tho
+TOP DOWN DESIGN for P2 and presentation ~10 mins ~10 slides
+PERFORMANCE METRICS needed!!!!!!!!!!!!
+Turnitin checks
+Declarations
+conceptual diagram dont have to be drawn or BLOCK diagram,.....can use actual pics FOR BROCHURE
+use color in diagrams
+use right tense for each section of report
+REFERENCE EVVVERYYYTHINGGGGG!!!!!
+in feasibility study....talk about why we doing the processing on phone vs on firmware
+get amazon device from actual site
+
+feedback on p2 so far
+have to do normalised metric and baseline for hr detection of abnormal detection
+zoom out
+say ours is cheaper and more inclusive
+2 feasibility studies-one is of proposed sol (why your approach is he right one) and one of paper design (sys design)
+//talk about ai stuff--why dataset (swell) is applicable to us (SA)
+//talk, justify, show impact
